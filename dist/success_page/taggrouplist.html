@@ -1,0 +1,46 @@
+{% extends "superset/basic.html" %}
+{% block head_js %}
+    {{ super() }}
+    {% with filename="userlabel" %}
+        <link href="/static/appbuilder/select2/select2.css" rel="stylesheet">
+        <script charset="utf-8" src="/static/assets/javascripts/lib/react/react.min.js"></script>
+        <script charset="utf-8" src="/static/assets/javascripts/lib/react/react-dom.min.js"></script>
+    {% endwith %}
+{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <div id="show_data" data-dashboard="{{ json_data }}">
+        <div class="row">
+            <div id="alert-container"></div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title pull-left">标签配置</h4>
+                    <div class="pull-right tag_search tag_search_set">
+                        <div class="input-group">
+                            <input type="text" id="keyword" class="form-control no-right-border form-focus-purple" placeholder="输入标签组名称搜索">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary btn-sm" id="click_search" type="button">搜索</button>
+                            </span>   &nbsp;
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="well well-sm well-pagination"></div>
+                <div id="tabel-container"></div>
+                <div id="from-container"></div>
+
+                <div class="form-group-separator"></div>
+                <!---->
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block tail_js %}
+    {{ super() }}
+    {% with filename="userlabel" %}
+        {% include "superset/partials/_script_tag.html" %}
+    {% endwith %}
+{% endblock %}
