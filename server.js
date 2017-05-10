@@ -19,5 +19,10 @@ var proxy = http.createServer(function(req, res){
     //   console.log("done");
     })
   });
+  if(/POSTIPUT/i.test(req.method)){
+    req.pipe(sreq);
+  }else{
+    sreq.end();
+  }
 }).listen(9999);
 console.log("server started on!");
