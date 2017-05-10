@@ -1,7 +1,7 @@
 var path = require('path')
 
 module.exports = {
-    entry: './app/new_index.jsx',
+    entry: './app/userlabel.jsx',
 
     output: {
         // path:"./dist",

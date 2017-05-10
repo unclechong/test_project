@@ -103,10 +103,10 @@ export default class Tabel extends React.Component{
                 if (typeof val[_val] == 'object') {
                     str = JSON.stringify(val[_val]);
                 }else {
-                    str = val[_val];
+                    str = val[_val]==undefined||val[_val]==null?"":val[_val];
                 }
                 td_arr.push(<td className="text-center" key={_key}>{this.props.noId&&_key==0?key+1:str}</td>)
-                if(this.props.Op&&(_key == this.props.bodyDateObj.length-1)){
+                if(this.props.noOp&&(_key == this.props.bodyDateObj.length-1)){
                     td_arr.push(this.renderBlock(_key+1,key+1));
                 }
             })
@@ -159,7 +159,7 @@ export default class Tabel extends React.Component{
                     </thead>
                     {this.renderBody()}
                 </table>
-                {this.renderPagination()}
+                {this.props.nopage?"":this.renderPagination()}
             </div>
 		)
 	}
